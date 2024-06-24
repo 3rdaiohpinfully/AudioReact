@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactive Animation - Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4 text-center">
+        <h1 class="text-5xl font-bold mb-8">Welcome to Reactive Animation</h1>
+        <p class="text-xl mb-8">Upload your image and audio files to create stunning reactive animations.</p>
+        <a href="{{ url_for('upload_page') }}" class="bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300">Get Started</a>
+    </div>
+</body>
+</html>
