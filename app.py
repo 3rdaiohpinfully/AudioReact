@@ -10,7 +10,11 @@ os.makedirs(os.path.join(app.config['UPLOAD_FOLDER'], 'audios'), exist_ok=True)
 os.makedirs('processed/animations', exist_ok=True)
 
 @app.route('/')
-def index():
+def landing():
+    return render_template('landing.html')
+
+@app.route('/upload_page')
+def upload_page():
     animation = request.args.get('animation')
     return render_template('index.html', animation=animation)
 
@@ -34,7 +38,7 @@ def upload_file():
     # Process the files to create reactive animation
     animation_path = create_reactive_animation(image_path, audio_path)
 
-    return redirect(url_for('index', animation=animation_path))
+    return redirect(url_for('upload_page', animation=animation_path))
 
 def create_reactive_animation(image_path, audio_path):
     # Placeholder for actual processing code
