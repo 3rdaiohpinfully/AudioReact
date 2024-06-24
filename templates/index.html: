@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reactive Animation - Upload</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container mx-auto p-4">
+        <h1 class="text-4xl text-center mb-8">Upload Files to Create Reactive Animation</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data" class="flex flex-col items-center">
+            <input type="file" name="image" accept="image/*" class="mb-4 p-2 border border-gray-300">
+            <input type="file" name="audio" accept="audio/*" class="mb-4 p-2 border border-gray-300">
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Upload</button>
+        </form>
+        {% if animation %}
+        <div class="mt-8">
+            <h2 class="text-2xl">Your Reactive Animation:</h2>
+            <video src="{{ url_for('static', filename=animation) }}" controls class="mt-4 w-full"></video>
+        </div>
+        {% endif %}
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
